@@ -1,5 +1,48 @@
 @import "~bootstrap/scss/bootstrap.scss";
+body {background-color: hsl(0, 0%, 90%);}
+.center {text-align: center; color: beige;
+font-weight: 95;
+font-size: 60px;
+margin-top: 30px;}
+.fas.fa-times {float: right; background: none; border: none; padding: inherit;}
+.margin {margin-bottom: 30px;}
+.paper {
+  background-color: white;
+  /* Need position to allow stacking of pseudo-elements */
+  position: relative;
+  /* Padding for demo purposes */
+  padding: 30px;
+}
 
+.paper,
+.paper::before,
+.paper::after {
+  /* Add shadow to distinguish sheets from one another */
+  box-shadow: 2px 1px 1px rgba(0,0,0,0.15);
+}
+
+.paper::before,
+.paper::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
+/* Second sheet of paper */
+.paper::before {
+  left: 7px;
+  top: 5px;
+  z-index: -1;
+}
+
+/* Third sheet of paper */
+.paper::after {
+  left: 12px;
+  top: 10px;
+  z-index: -2;
+}
 /* 
 
     You can write your own styles here...

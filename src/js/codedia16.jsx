@@ -26,34 +26,30 @@ export function Form() {
 	};
 	return (
 		<div className="container">
-			<h1 className="text-center">CRUD de Tareas con React</h1>
 			<div className="row">
-				<div className="col-8">
-					<h4 className="text-center">Lista de Tareas</h4>
-					<ul className="list-group">
-						{arrayTareas.map(item => (
-							<li className="list-group-item" key={item.id}>
-								<span className="lead">{item.nombreTarea}</span>
-							</li>
-						))}
-					</ul>
-				</div>
-				<div className="col-4">
-					<h4 className="text-center">Añadir Tareas</h4>
+				<div className="col">
 					<form onSubmit={agregarTarea}>
 						<input
 							type="text"
 							className="form-control mb-2"
-							placeholder="Ingrese Tarea"
+							placeholder="Ingrese Tarea y presione ENTER"
 							onChange={e => setTarea(e.target.value)}
 							value={tarea}
 						/>
-						<button
+						{/* <button
 							className="btn btn-dark btn-block"
 							type="submit">
 							Agregar
-						</button>
+						</button> */}
 					</form>
+					<ul className="list-group paper">
+						{arrayTareas.map(item => (
+							<li className="list-group-item" key={item.id}>
+								<span className="lead">{item.nombreTarea}</span>
+								<button className="fas fa-times"></button>
+							</li>
+						))}
+					</ul>
 				</div>
 			</div>
 		</div>
