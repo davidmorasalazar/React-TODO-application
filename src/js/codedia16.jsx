@@ -11,7 +11,7 @@ import "../styles/index.scss";
 //include images into your bundle
 //create your first component
 export function Form() {
-	const [tarea, setTarea] = React.useState("");
+	const [tarea, setTarea, setNew] = React.useState("");
 	const [arrayTareas, setArrayTareas] = React.useState([]);
 	const agregarTarea = e => {
 		e.preventDefault();
@@ -24,6 +24,7 @@ export function Form() {
 		]);
 		setTarea("");
 	};
+	// const result = setArrayTareas.filter(word => word.length > 3);
 	return (
 		<div className="container">
 			<div className="row">
@@ -46,7 +47,13 @@ export function Form() {
 						{arrayTareas.map(item => (
 							<li className="list-group-item" key={item.id}>
 								<span className="lead">{item.nombreTarea}</span>
-								<button className="fas fa-times"></button>
+								<button
+									className="fas fa-times"
+									onClick={() =>
+										arrayTareas.filter(
+											hwork => hwork.id == item.id
+										)
+									}></button>
 							</li>
 						))}
 					</ul>
