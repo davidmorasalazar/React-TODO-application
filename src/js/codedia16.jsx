@@ -49,11 +49,12 @@ export function Form() {
 								<span className="lead">{item.nombreTarea}</span>
 								<button
 									className="fas fa-times"
-									onClick={() =>
-										arrayTareas.filter(
-											hwork => hwork.id == item.id
-										)
-									}></button>
+									onClick={() => {
+										const newarrTareas = arrayTareas.filter(
+											hwork => hwork.id != item.id
+										);
+										setArrayTareas([...newarrTareas]);
+									}}></button>
 							</li>
 						))}
 					</ul>
